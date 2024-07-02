@@ -37,7 +37,7 @@ static void set_battery_symbol(lv_obj_t *label, struct battery_status_state stat
     }
 #endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
 
-    strcpy(text, LV_SYMBOL_AUDIO " ");
+    strcat(text, LV_SYMBOL_AUDIO " ");
 
 #if IS_ENABLED(CONFIG_ZMK_WIDGET_BATTERY_STATUS_SHOW_PERCENTAGE)
     char perc[5] = {};
