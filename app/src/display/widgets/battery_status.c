@@ -37,6 +37,8 @@ static void set_battery_symbol(lv_obj_t *label, struct battery_status_state stat
     }
 #endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
 
+    strcpy(text, LV_SYMBOL_AUDIO " ");
+
 #if IS_ENABLED(CONFIG_ZMK_WIDGET_BATTERY_STATUS_SHOW_PERCENTAGE)
     char perc[5] = {};
     snprintf(perc, sizeof(perc), "%3u%%", level);
@@ -65,7 +67,7 @@ void battery_status_update_cb(struct battery_status_state state) {
 static struct battery_status_state battery_status_get_state(const zmk_event_t *eh) {
     const struct zmk_battery_state_changed *ev = as_zmk_battery_state_changed(eh);
 
-    return (struct battery_status_state) {
+    return (struct battery_status_state){
         .level = (ev != NULL) ? ev->state_of_charge : zmk_battery_state_of_charge(),
 #if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
         .usb_present = zmk_usb_is_powered(),

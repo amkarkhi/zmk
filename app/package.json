@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zmkfirware/zmk.git"
+    "url": "git+https://github.com/amkarkhi/zmk.git"
   },
   "author": "ZMK Contributors",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zmkfirware/zmk/issues"
+    "url": "https://github.com/amkarkhi/zmk/issues"
   },
   "homepage": "https://zmk.dev/",
   "devDependencies": {

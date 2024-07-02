@@ -25,11 +25,12 @@ struct wpm_status_state wpm_status_get_state(const zmk_event_t *eh) {
 };
 
 void set_wpm_symbol(lv_obj_t *label, struct wpm_status_state state) {
-    char text[4] = {};
+    char text[6] = {};
 
     LOG_DBG("WPM changed to %i", state.wpm);
     snprintf(text, sizeof(text), "%i", state.wpm);
 
+    strcpy(text, LV_SYMBOL_REFRESH);
     lv_label_set_text(label, text);
     lv_obj_align(label, LV_ALIGN_BOTTOM_RIGHT, 0, 0);
 }
